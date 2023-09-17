@@ -10,15 +10,16 @@ const sortStatusBtn = document.querySelector(".sort__status__btn");
 const createBranchBtn = document.querySelector(".create__branch__btn");
 const deleteBranchSymbol = document.querySelector(".delete__branch__symbol");
 
-// REMOVE AFTERWARDS --- Manual Creation of branches for tests
-// let counter = 0;
-// const streetArr = [
-//   "379 Ray Lawson Boulevard",
-//   "1410 Trafalgar Road",
-//   "400 Ray Lawson Boulevard",
-// ];
-// const balanceArr = [100, 2000, 150];
-// const statusArr = [true, false, true];
+// MANUAL CREATION OF BRANCHES FOR TESTING PURPOSES
+let counter = 0;
+const streetArr = [
+  "390 Ray Lawson Boulevard, Brampton, Canada",
+  "1410 Trafalgar Road, Oakville, Canada",
+  "315 Church St. Station, New York, United States",
+  "300 Valley Way, Niagara Falls, Canada",
+];
+const balanceArr = [1700, 1508, 20330, 940];
+const statusArr = [true, false, true, true];
 // UP TO HERE
 
 class Branch {
@@ -57,10 +58,10 @@ class App {
     // Get Position, Load Map
     this._getLocation();
 
-    // REMOVE AFTERWARDS --- Manual Creation of branches for tests
-    // this._createBranch();
-    // this._createBranch();
-    // this._createBranch();
+    // MANUAL CREATION OF BRANCHES FOR TESTING PURPOSES
+    for (const str of streetArr) {
+      this._createBranch();
+    }
     // UP TO HERE
 
     // App event handlers:
@@ -109,25 +110,23 @@ class App {
     const meMarker = L.marker(this.userLocationCoords, { icon: userIcon });
     meMarker.addTo(this.map);
     this.markersGroup = L.featureGroup([meMarker]).addTo(this.map);
-
-    // this.map.on("click", this._displayForm.bind(this));
   }
 
   _createBranch(e) {
-    // DELETE THIS PEACE OF CODE AFTER TESTING
-    // if (!e) {
-    //   const branch = new Branch(
-    //     this.branches.length + 1,
-    //     balanceArr[counter],
-    //     streetArr[counter],
-    //     statusArr[counter]
-    //   );
-    //   this._convertAddressToCoords(branch);
-    //   this._hideForm();
-    //   this.branches.push(branch);
-    //   counter++;
-    //   return;
-    // }
+    // MANUAL CREATION OF BRANCHES FOR TESTING PURPOSES
+    if (!e) {
+      const branch = new Branch(
+        this.branches.length + 1,
+        balanceArr[counter],
+        streetArr[counter],
+        statusArr[counter]
+      );
+      this._convertAddressToCoords(branch);
+      this._hideForm();
+      this.branches.push(branch);
+      counter++;
+      return;
+    }
     // UP TO HERE
     e.preventDefault();
     const allNumbers = (...inputs) => inputs.every((input) => isFinite(input));
