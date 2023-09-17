@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <title>Ronnie Bank</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="create__branch">
+        <button class="create__branch__btn">➕ Create New Branch</button>
+      </div>
+
+      <ul class="branches">
+        <form class="form hidden">
+          <div class="form__row">
+            <label class="form__label">Balance</label>
+            <input
+              class="form__input form__input--balance"
+              placeholder="balance"
+            />
+          </div>
+          <div class="form__row">
+            <label class="form__label">Status</label>
+            <select class="form__input form__input--status">
+              <option value="open">Open</option>
+              <option value="closed">Closed</option>
+            </select>
+          </div>
+          <div class="form__row form__row--address">
+            <label class="form__label">Address</label>
+            <input
+              class="form__input form__input--address"
+              placeholder="Address"
+            />
+          </div>
+          <button class="form__btn">submit</button>
+        </form>
+        <h3>Sort by:</h3>
+        <div class="sorting__btns">
+          <button class="sort__btn sort__distance__btn">distance</button>
+          <button class="sort__btn sort__name__btn">name</button>
+          <button class="sort__btn sort__balance__btn">balance</button>
+          <button class="sort__btn sort__status__btn">status</button>
+        </div>
+      </ul>
+    </div>
+    <div id="map"></div>
+  </body>
+</html>
